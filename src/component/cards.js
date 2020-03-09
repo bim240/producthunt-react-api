@@ -5,7 +5,7 @@ import Card from "./card";
 const Cards = props => {
   return (
     <div className="list_big_container">
-      {console.log(props.data[0])}
+      {/* {console.log(props.data[0].thumbnail)} */}
       <div className="today_heading">
         <h3 className="today">Today</h3>
         <span className="popular_new">POPULAR NEWEST</span>

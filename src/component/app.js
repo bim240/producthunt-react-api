@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Cards from "./cards";
 import Header from "./header";
 import Sidebar from "./sidebar";
@@ -47,14 +48,29 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data
+      data: data,
+      token: process.env.REACT_APP_SECRET
     };
+  }
+  componentDidMount() {
+    axios("https://api.producthunt.com/v1/posts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.state.token}`,
+        Accept: "application/json"
+      }
+    }).then(res => {
+      this.setState({ data: res.data.posts });
+      return res;
+    });
+    // .then(res => console.log(res.data.posts.thumbnail));
   }
   updatePopular = id => {
     console.log("inside update");
     let updatedState = this.state.data.map(v => {
       if (v.id === id) {
-        v.popular += 1;
+        v.votes_count += 1;
       }
       return v;
     });

@@ -159,7 +159,7 @@ const Sidebar = props => {
             ></input>
             <label for="tags"> Tags</label>
             <input
-              onChange={e => (obj.tag = ["bim", 240])}
+              onChange={e => (obj.tag = e.target.value.split(","))}
               type="text"
               id="tags"
               className="search_bar subscribe_email"
@@ -185,7 +185,7 @@ const Sidebar = props => {
           <div>
             <button
               onClick={e => props.addList(obj)}
-              className="btn Signup subscribe"
+              className="btn Signup submit_newlist"
             >
               Create
             </button>

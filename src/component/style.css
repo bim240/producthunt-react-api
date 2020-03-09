@@ -135,7 +135,7 @@ table {
   transition: all 0.4ms;
   padding-top: 10px;
   background-color: white;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid rgba(151, 150, 150, 0.514);
 }
 .header_container {
   width: 85%;
@@ -398,4 +398,14 @@ img {
 label {
   display: block;
   /* width: 100%; */
+}
+.submit_newlist {
+  margin: 10px 0;
+  width: 150px;
+}
+.rm_btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-weight: bold;
 }
